@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { HomePage, Navbar } from './components'
+import { HomePage, Navbar, ProductPage, SearchResults, Checkout } from './components'
 
 const App = () => {
   return (
@@ -9,6 +9,9 @@ const App = () => {
     <Navbar />
       <Routes>
         <Route exact path="/" element={ <HomePage /> } />
+        <Route path="/search" element={ <SearchResults /> } />
+        <Route path="/product/:id" element={ <ProductPage /> } />
+        <Route path="/checkout" element={ <Checkout /> } />
       </Routes>
     </BrowserRouter>
 

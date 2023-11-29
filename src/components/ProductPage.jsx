@@ -58,13 +58,13 @@ const ProductPage = () => {
                     <div className="text-base xl:text-lgtext-green-700 text-semibold mt-1">In Stock</div>
                     <div className="text-base xl:text-lg mt-1">Quantity:
                     <select onChange={(e) => setQuantity(e.target.value)} className='p-2 bg-white border rounded-md focus:border-indigo-600'>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
                     </select>
                     </div>
                     <Link to='/checkout'>
-                    <button onClick={ () => dispatch(addToCart(addQuantityToProduct)) } className='bg-yellow-400 w-full p-3 text-xs xl:text-sm rounded hover:bg-yellow-500 mt-3'>Add to Cart</button>
+                    <button onClick={ () => dispatch(addToCart(addQuantityToProduct())) } className='bg-yellow-400 w-full p-3 text-xs xl:text-sm rounded hover:bg-yellow-500 mt-3'>Add to Cart</button>
                     </Link>
                 </div>
             </div>

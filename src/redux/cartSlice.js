@@ -28,9 +28,27 @@ export const cartSlice = createSlice({
             const index = state.products.findIndex((products) => products.id === action.payload);
             // 4. remove from the array
             state.products.splice(index, 1);
+        },
+        incrementInCart: (state, action) => {
+            const itemIncrement = state.products.find((products) => products.id === action.payload);
+            if(itemIncrement.quantity >= 1) {
+                itemIncrement.quantity = itemIncrement.quantity + 1;
+            }
+            state.productsNumber = state.productsNumber + 1;
+
+        },
+        decrementInCart: (state, action) => {
+            const itemDecrement = state.products.find((products) => products.id === action.payload);
+            if(itemDecrement.quantity === 1) {
+                const index = state.products.findIndex((item) => item.id === action.payload);
+                state.products.splice(index, 1);
+            }else {
+                itemDecrement.quantity--;
+            }
+            state.productsNumber = state.productsNumber - 1;
         }
     }
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, incrementInCart, decrementInCart } = cartSlice.actions;
 export default cartSlice.reducer;
